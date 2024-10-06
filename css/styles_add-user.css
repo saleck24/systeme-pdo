@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fbe9e7;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #371fec;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 60px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.container1 {
+    background-color: #f0f0f0; /* Optionnel, pour distinguer visuellement la section */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.logo img {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logout a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.input-container {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+    max-width: 400px; /* Ajuste la largeur maximale des champs */
+    margin: 0 auto; /* Centre le groupe d'entrée */
+}
+
+.input-group img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 20px;
+    height: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding-left: 40px; /* Ajout d'un padding pour les icônes à gauche */
+    padding-right: 40px; /* Ajout d'un padding pour l'icône à droite */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-group select {
+    width: 100%;
+    padding: 10px 10px 10px 30px; /* Ajuste le padding pour tenir compte des icônes */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-icon-eye.toggle-password {
+    right: 10px; /* Positionne l'icône de l'œil à droite */
+    cursor: pointer;
+    pointer-events: auto; /* Assure que l'icône de l'œil soit cliquable */
+}
+
+.input-icon-email {
+    left: 10px; /* Positionne l'icône de l'email à gauche */
+}
+
+.input-icon-lock {
+    left: 10px; /* Positionne l'icône de verrouillage à gauche */
+}
+
+button {
+    background-color: #2f16e9;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100px; /* Ajuste la largeur du bouton */
+    margin: 0 auto; /* Centre le bouton */
+}
+
+button:hover {
+    background-color: #261dd3;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+.btn-blue {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-blue:hover {
+    background-color: #0056b3;
+}

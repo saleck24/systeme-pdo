@@ -1,0 +1,400 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    
+}
+header {
+    background-color: #3c34de;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.logo-container {
+    background-color: white; /* Couleur de fond blanche */
+    padding: 10px; /* Optionnel : Ajouter un peu d'espace autour de l'image */
+    display: flex; /* Optionnel : Centrer l'image horizontalement */
+    justify-content: center; /* Optionnel : Centrer l'image horizontalement */
+    align-items: center; /* Optionnel : Centrer l'image verticalement */
+
+}
+
+.logo-image {
+    max-width: 30%; /* S'assurer que l'image s'adapte à la taille de la div */
+    height: auto; /* Conserver les proportions de l'image */
+}
+
+/* Style pour supprimer les décorations de lien */
+.logout-link {
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte actuelle */
+}
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    filter: brightness(0) invert(1);
+}
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Réduit l'espacement entre l'icône et le texte */
+    font-size: 16px; /* Ajustez la taille du texte si nécessaire */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+.logout img {
+    margin-left: 10px;
+}
+
+.logout a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+
+/* Styles pour le titre principal */
+h1,h2 {
+    margin: 20px 0; /* Marge au-dessus et en-dessous du titre */
+    color: #333; /* Couleur du texte */
+    text-align: center;
+}
+
+
+/* Styles pour le formulaire */
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    /*border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;*/
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="file"],
+form select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center; /* Centre horizontalement le contenu */
+    
+}
+/* Styles pour la table */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin:20px 0;
+}
+
+table, th, td {
+    border: 1px solid #ece5e5;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #d4c21e;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #ffff;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+.submit-container {
+    text-align: center; /* Centre le bouton horizontalement */
+}
+
+button[type="submit"] {
+    padding: 10px 20px; /* Ajoute un peu de marge au bouton */
+    background-color: #4CAF50; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border: none; /* Retire la bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Change le curseur quand on survole le bouton */
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049; /* Change la couleur quand on survole le bouton */
+}
+
+/* styles_stock_carburant.css */
+
+.edit-button {
+    background-color: yellow;
+    color: black;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+    opacity: 0.8;
+}
+.validate-button {
+    background-color: #007bff; /* Bleu primaire */
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.validate-button:hover {
+    background-color: #0056b3; /* Bleu plus foncé au survol */
+    opacity: 0.8;
+}
+
+.button-container {
+    text-align: center; /* Centre le contenu horizontalement */
+    margin-top: 20px;   /* Ajoute de l'espace au-dessus du bouton, optionnel */
+}
+
+.btn-blue {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-blue:hover {
+    background-color: #0056b3; /* Changement de couleur au survol */
+}
+
+
+/* Style pour la fenêtre modale */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.requisition-button {
+    background-color: blue; /* Couleur de fond bleu */
+    color: white;           /* Couleur du texte blanc */
+    border: none;           /* Supprimer la bordure par défaut */
+    padding: 10px 20px;     /* Espacement interne du bouton */
+    text-align: center;     /* Centrer le texte */
+    text-decoration: none;  /* Supprimer le soulignement du texte */
+    display: inline-block;  /* Affichage en ligne */
+    font-size: 16px;        /* Taille du texte */
+    margin: 4px 2px;        /* Marge autour du bouton */
+    cursor: pointer;        /* Curseur pointeur survolant le bouton */
+    border-radius: 5px;     /* Coins arrondis */
+}
+
+.requisition-button:hover {
+    background-color: darkblue; /* Couleur de fond bleu foncé au survol */
+}
+
+/* Style général pour la pagination */
+.pagination {
+    display: flex;
+    justify-content: flex-end; /* Place la pagination à droite */
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* Style des liens de pagination (uniforme pour toutes les pages) */
+.pagination a,.pagination strong{
+    padding: 8px 16px;
+    margin: 0 4px;
+    background-color: #4CAF50; /* Couleur de fond des liens */
+    color: white; /* Couleur du texte */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Style au survol */
+.pagination a:hover {
+    background-color: #28a017; /* Couleur au survol */
+}
+.pagination strong {
+    background-color: #333; /* Couleur pour la page active */
+    font-weight: bold;
+    color: white;
+}
+/* Boutons de retour */
+.btn-return , .btn-print ,.btn-submit {
+    text-align: center;
+    margin: 20px 0;
+}
+/* Styles pour l'impression */
+@media print {
+    .btn-print, .close {
+        display: none;/* Masquer le bouton Imprimer lors de l'impression */
+    }
+}
+fieldset {
+    width: 70%; /* Largeur du fieldset */
+    margin: 0 auto; /* Centre le fieldset horizontalement */
+    padding: 20px; /* Espace intérieur du fieldset */
+    text-align: center; /* Centre le texte à l'intérieur du fieldset */
+    
+}
+legend {
+    font-size: 24px; 
+    font-weight: bold;
+}
+.search-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px; /* Ajustez selon vos besoins */
+}
+
+.search-bar input {
+    width: 200px; /* Ajustez la largeur selon vos besoins */
+    padding: 5px;
+    margin-right: 10px; /* Espace entre le champ et le bouton */
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #007bff; /* Couleur de fond du bouton */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3; /* Couleur au survol */
+}
+
+/* Optionnel : Espace entre la barre de recherche et la paroi droite */
+.search-bar {
+    padding-right: 20px; /* Ajustez pour éviter que la barre touche la paroi */
+}
+.btn-update{
+    text-align: center;
+}
+/* Style pour le bouton Mettre à jour dans la div .btn-update */
+.btn-update input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50; /* Vert */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-update input[type="submit"]:hover {
+    background-color: #45a049; /* Vert plus foncé au survol */
+}
+.tête{
+    text-align: center;
+    font-size: 28px;
+}
+
+
+
+
+
+

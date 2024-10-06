@@ -1,0 +1,236 @@
+/* Style global du corps */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #3c34de;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.logo-container {
+    background-color: white; /* Couleur de fond blanche */
+    padding: 10px; /* Optionnel : Ajouter un peu d'espace autour de l'image */
+    display: flex; /* Optionnel : Centrer l'image horizontalement */
+    justify-content: center; /* Optionnel : Centrer l'image horizontalement */
+    align-items: center; /* Optionnel : Centrer l'image verticalement */
+
+}
+
+.logo-image {
+    max-width: 30%; /* S'assurer que l'image s'adapte à la taille de la div */
+    height: auto; /* Conserver les proportions de l'image */
+}
+
+/* Style pour supprimer les décorations de lien */
+.logout-link {
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte actuelle */
+}
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    filter: brightness(0) invert(1);
+}
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Réduit l'espacement entre l'icône et le texte */
+    font-size: 16px; /* Ajustez la taille du texte si nécessaire */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+.logout img {
+    margin-left: 10px;
+}
+
+.logout a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+/* Style pour le titre de la page */
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    color: #333;
+}
+
+/* Style pour la table des demandes */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+table thead {
+    background-color: #a625d1;
+    color: #fff;
+}
+
+table thead th {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd; /* Ajout de la bordure droite */
+}
+
+table thead th:last-child {
+    border-right: none; /* Retirer la bordure du dernier élément */
+}
+
+table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody td {
+    padding: 12px;
+    text-align: center;
+    border-right: 1px solid #ddd; /* Ajout de la bordure droite */
+}
+
+table tbody td:last-child {
+    border-right: none; /* Retirer la bordure du dernier élément */
+}
+
+table tbody td a {
+    background-color: #2c4fd0; /* Couleur verte */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+}
+
+table tbody td a:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #e51bac;
+}
+
+/* Pied de page */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #003366;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+.btn-blue {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-blue:hover {
+    background-color: #0056b3;
+}
+.btn-return{
+    margin:20px 0;
+    text-align: center;
+}
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: flex-end; /* Aligne la pagination à droite */
+    margin-top: 20px;
+    padding-right: 20px; /* Ajoute un espace à droite de la pagination */
+}
+
+.pagination a, .pagination span {
+    margin: 0 5px;
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #007bff; /* Couleur de fond au survol */
+    color: white; /* Couleur du texte au survol */
+}
+
+.pagination span {
+    background-color: #007bff; /* Couleur pour la page active */
+    color: white; /* Couleur du texte pour la page active */
+    font-weight: bold;
+}
+
+.pagination a {
+    cursor: pointer;
+}
+
+.pagination a:active {
+    background-color: #0056b3; /* Couleur de fond au clic */
+    color: white;
+}
+#searchInput {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+button {
+    cursor: pointer;
+}
+

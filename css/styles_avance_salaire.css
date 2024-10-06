@@ -1,0 +1,197 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+header {
+    background-color: #3c34de;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.logo-container {
+    background-color: white; /* Couleur de fond blanche */
+    padding: 10px; /* Optionnel : Ajouter un peu d'espace autour de l'image */
+    display: flex; /* Optionnel : Centrer l'image horizontalement */
+    justify-content: center; /* Optionnel : Centrer l'image horizontalement */
+    align-items: center; /* Optionnel : Centrer l'image verticalement */
+
+}
+
+.logo-image {
+    max-width: 30%; /* S'assurer que l'image s'adapte à la taille de la div */
+    height: auto; /* Conserver les proportions de l'image */
+}
+
+/* Style pour supprimer les décorations de lien */
+.logout-link {
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte actuelle */
+}
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    filter: brightness(0) invert(1);
+}
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Réduit l'espacement entre l'icône et le texte */
+    font-size: 16px; /* Ajustez la taille du texte si nécessaire */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.title {
+    font-size: 24px;
+}
+/* Style pour supprimer les décorations de lien */
+.logout-link {
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte actuelle */
+}
+.logout img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+
+}
+
+
+/* Styles pour les titres */
+h1 {
+    color: #070a07; /* Vert stylisé */
+    border: 1px solid #4CAF50;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #f0f8f0;
+    width: 50%; /* Réduction de la largeur du cadre */
+    margin: 0 auto; /* Centrer le h1 */
+}
+
+h2 {
+    color: #2196F3;
+    border: 1px solid #2196F3;
+    padding: 5px;
+    text-align: center;
+    border-radius: 6px;
+    background-color: #e7f3ff;
+    width: 60%; /* Réduction de la largeur du cadre */
+    margin: 10px auto; /* Centrer le h1 */
+}
+
+/* Style pour centrer le legend */
+fieldset {
+    margin: 20px auto;
+    width: 50%;
+    padding: 20px;
+    border: 2px solid #c9990b;
+    border-radius: 10px;
+}
+
+legend {
+    color: #FF5722; /* Orange stylisé */
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 5px;
+    background-color: #fff3e0;
+    border-radius: 5px;
+}
+
+.button-container {
+    text-align: center; /* Centre le contenu horizontalement */
+    margin-top: 20px;   /* Ajoute de l'espace au-dessus du bouton, optionnel */
+}
+
+.center-table {
+margin: 0 auto; /* Centre la table */
+}
+table {
+border-collapse: collapse;
+width: 70%;
+margin-bottom: 20px;
+}
+th, td {
+border: 2px solid #c9990b;
+padding: 8px;
+text-align: center;
+}
+th {
+background-color: #c4600f;
+}
+/* Bouton bleu */
+.btn-blue {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 15px; /* Espace au-dessus du bouton */
+}
+
+/* Bouton 'Traiter la Demande' */
+input[type="submit"] {
+    background-color: rgb(21, 142, 31);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover effect pour les boutons */
+.btn-blue:hover,
+input[type="submit"]:hover {
+    background-color: darkblue;
+}
+
+.encadre {
+    border: 2px solid black; /* Bordure noire de 2px d'épaisseur */
+    padding: 10px; /* Espace entre le texte et la bordure */
+    text-align: center; /* Centrer le texte */
+    width: fit-content; /* Ajuster la taille à celle du contenu */
+    margin: 20px auto; /* Centrer l'élément horizontalement avec une marge */
+    background-color: #689fa7; /* Couleur de fond légèrement grise */
+}
+.btn-print {
+    background-color: #4fb952;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 20px auto;/* Auto pour centrer */
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    display: block; /* Nécessaire pour que le margin auto fonctionne */
+}
+@media print {
+    /* Masquer le bouton 'Imprimer' lors de l'impression */
+    .btn-print, 
+    .logout-link,
+    button , .button-container {
+        display: none;
+    }
+}
+
+.btn-print:hover {
+    background-color: #31f93b; 
+}
+
+

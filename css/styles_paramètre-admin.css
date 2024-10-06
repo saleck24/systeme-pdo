@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #3c34de;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.title {
+    font-size: 24px;
+}
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+}
+
+main {
+    padding: 20px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    flex-wrap: wrap;
+    gap: 20px; /* Réduire l'espacement entre les éléments */
+    margin-top: 50px; /* Ajouter un espace en haut pour centrer verticalement */
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    padding: 10px; /* Ajouter un peu de padding pour un meilleur espacement interne */
+    width: 150px; /* Réduire la largeur pour rapprocher les items */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour améliorer le design */
+    border-radius: 8px; /* Ajouter des coins arrondis pour un look moderne */
+}
+
+.form-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.form-item img {
+    width: 100px; 
+    height: 100px; 
+    margin-bottom: 10px;
+}
+
+.form-item div {
+    font-size: 16px;
+}
+.btn-blue {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-blue:hover {
+    background-color: #0056b3;
+}

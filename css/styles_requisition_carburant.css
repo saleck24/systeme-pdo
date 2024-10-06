@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.header h1 {
+    text-align: center;
+    flex-grow: 1;
+    margin: 0;
+}
+.header p {
+    margin: 0;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+.print-button {
+    background-color: rgb(16, 119, 154); /* Couleur de fond bleu clair */
+    color: black;                /* Couleur du texte en noir */
+    border: none;                /* Supprimer la bordure par défaut */
+    padding: 10px 20px;          /* Espacement interne du bouton */
+    text-align: center;          /* Centrer le texte */
+    text-decoration: none;       /* Supprimer le soulignement du texte */
+    display: inline-block;       /* Affichage en ligne */
+    font-size: 16px;             /* Taille du texte */
+    margin: 4px 2px;             /* Marge autour du bouton */
+    cursor: pointer;             /* Curseur pointeur survolant le bouton */
+    border-radius: 5px;          /* Coins arrondis */
+}
+
+.print-button:hover {
+    background-color: rgb(30, 0, 255); /* Couleur de fond bleu vif au survol */
+}

@@ -1,0 +1,279 @@
+/* Réinitialisation de quelques styles par défaut */
+body, h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+header {
+    background-color: #3c34de;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.title {
+    font-size: 24px;
+}
+
+.logo-container {
+    background-color: white; /* Couleur de fond blanche */
+    padding: 10px; /* Optionnel : Ajouter un peu d'espace autour de l'image */
+    display: flex; /* Optionnel : Centrer l'image horizontalement */
+    justify-content: center; /* Optionnel : Centrer l'image horizontalement */
+    align-items: center; /* Optionnel : Centrer l'image verticalement */
+
+}
+
+.logo-image {
+    max-width: 30%; /* S'assurer que l'image s'adapte à la taille de la div */
+    height: auto; /* Conserver les proportions de l'image */
+}
+
+/* Style pour supprimer les décorations de lien */
+.logout-link {
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte actuelle */
+}
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    filter: brightness(0) invert(1);
+}
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Réduit l'espacement entre l'icône et le texte */
+    font-size: 16px; /* Ajustez la taille du texte si nécessaire */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+fieldset {
+    width: 80%; /* Largeur du fieldset */
+    margin: 0 auto; /* Centre le fieldset horizontalement */
+    padding: 20px;
+    text-align: center;
+    /*border: 2px solid #333;
+    border-radius: 8px;
+    max-width: 800px;*/
+    background-color: #fff;
+    
+    
+}
+
+legend {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+td, th {
+    padding: 10px;
+    text-align: left;
+    border: 0px solid #ddd;
+}
+
+th {
+    background-color: #f7a440;
+    color: white;
+}
+
+input[type="text"], input[type="number"], input[type="file"], select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Le style pour le bouton 'Fermer la commande' */
+input[type="submit"][name="close_commande"] {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+input[type="submit"][name="close_commande"]:hover {
+    background-color: darkred; /* Couleur plus foncée au survol */
+}
+
+/* Button Liste des besoins */
+.button-container {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.btn-yellow {
+    background-color: #ffd700;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.btn-yellow:hover {
+    background-color: #ffc107;
+}
+
+/* Style spécifique pour la deuxième table */
+.exp_b-table th {
+    background-color: #f7a440;
+}
+
+.exp_b-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.exp_b-table tr:hover {
+    background-color: #ddd;
+}
+.btn-blue {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-blue:hover {
+    background-color: #0056b3;
+}
+
+
+/* Conteneur pour les toasts */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Style de base pour les toasts */
+.toast {
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Toast de succès */
+.toast-success {
+    background-color: #28a745;
+    border: 2px solid #218838; /* Bordure verte plus foncée */
+}
+
+/* Toast d'erreur */
+.toast-error {
+    background-color: #dc3545;
+    border: 2px solid #c82333; /* Bordure rouge plus foncée */
+
+}
+
+/* Icône dans le toast */
+.toast-icon {
+    margin-right: 10px;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+/* Animation fade-in and fade-out */
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.hide {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Style pour le bouton de fermeture */
+.close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.close-btn:hover {
+    opacity: 1;
+}
+
+/* Adaptation pour les écrans mobiles */
+@media (max-width: 600px) {
+    .toast-container {
+        top: 10px;
+        right: 10px;
+        width: 90%;
+    }
+
+    .toast {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+

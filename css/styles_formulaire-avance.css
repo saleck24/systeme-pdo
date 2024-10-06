@@ -1,0 +1,232 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+header {
+    background-color: #371fec;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+.logo-container {
+    background-color: white; /* Couleur de fond blanche */
+    padding: 10px; /* Optionnel : Ajouter un peu d'espace autour de l'image */
+    display: flex; /* Optionnel : Centrer l'image horizontalement */
+    justify-content: center; /* Optionnel : Centrer l'image horizontalement */
+    align-items: center; /* Optionnel : Centrer l'image verticalement */
+
+}
+
+.logo-image {
+    max-width: 30%; /* S'assurer que l'image s'adapte à la taille de la div */
+    height: auto; /* Conserver les proportions de l'image */
+}
+
+/* Style pour supprimer les décorations de lien */
+.logout-link {
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte actuelle */
+}
+.logout img {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    filter: brightness(0) invert(1);
+}
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Réduit l'espacement entre l'icône et le texte */
+    font-size: 16px; /* Ajustez la taille du texte si nécessaire */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+fieldset {
+    width: 70%; /* Largeur du fieldset */
+    margin: 0 auto; /* Centre le fieldset horizontalement */
+    padding: 20px; /* Espace intérieur du fieldset */
+    text-align: center; /* Centre le texte à l'intérieur du fieldset */
+    
+}
+legend {
+    font-size: 24px; /* Ajuste la taille selon tes préférences */
+    font-weight: bold; /* Si tu souhaites garder le texte en gras */
+}
+
+
+form {
+    text-align: center; /* Centre les éléments du formulaire */
+}
+input[type="submit"] {
+    padding: 6px 12px; /* Ajuste le padding pour réduire la taille du bouton */
+    font-size: 14px; /* Réduit la taille de la police */
+    background-color: rgb(130, 240, 41);
+    font-weight: bold; /* Rend le texte en gras */
+    border: none; /* Supprime les bordures */
+    border-radius: 4px; /* Optionnel : Arrondit légèrement les bordures */
+}
+
+.avance-table { /* Applique le style uniquement à la table avec la classe personnel-table */
+    width: 100%;
+    /* Fusionne les bordures des cellules */
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.avance-table, .avance-table th, .avance-table td {
+    border: 1px solid black;/* Ajoute une bordure noire autour de la table et des cellules */
+}
+
+.avance-table th, .avance-table td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.avance-table th {
+    background-color: orange;
+}
+.btn-container {
+    text-align: center; /* Centre le contenu à l'intérieur du div */
+    margin-top: 20px;   /* Ajoute un espace au-dessus du bouton */
+}
+.btn {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    border-radius: 4px;
+}
+.btn-common {
+    font-size: 16px; /* Ajustez la taille selon vos besoins */
+    padding: 10px 15px; /* Ajustez le padding si nécessaire */
+}
+
+
+.btn-edit {
+    background-color: Green;
+    color: white;
+}
+
+.btn-delete {
+    background-color: Red;
+    color: white;
+}
+
+/* Change la couleur de fond du bouton "Edit" au survol */
+.btn-edit:hover {
+    background-color: #45a049;
+}
+
+/* Change la couleur de fond du bouton Delete" au survol */
+.btn-delete:hover {
+    background-color: #d32f2f;
+}
+.btn-blue {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-blue:hover {
+    background-color: #0056b3;
+}
+
+.btn-info {
+    background-color: rgb(25, 0, 255);
+    color: white;
+}
+.btn-validate {
+    display: inline-block;
+    background-color: rgb(206, 186, 6); 
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    cursor: pointer; /* Curseur de la souris changeant pour pointer */
+    border-radius: 5px; /* Coins arrondis */
+    transition: background-color 0.3s ease;
+}
+.btn-validate:hover {
+    background-color: #ffd700; /* Couleur de fond un peu plus foncée au survol */
+}
+
+
+/* La modal (background) */
+.modal {
+    display: none; /* Masqué par défaut */
+    position: fixed; /* Reste en place */
+    z-index: 1; /* Au-dessus */
+    left: 0;
+    top: 0;
+    width: 100%; /* Pleine largeur */
+    height: 100%; /* Pleine hauteur */
+    overflow: auto; /* Activer le scrolling si nécessaire */
+    background-color: rgb(0,0,0); /* Couleur noire avec opacité */
+    background-color: rgba(0,0,0,0.4); /* Couleur noire avec opacité */
+}
+
+/* Contenu de la modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centré verticalement */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largeur */
+}
+
+/* Le bouton fermer (x) */
+.close {
+    color: #b71111;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Style de pagination */
+.pagination {
+    display: inline-block;
+    margin-top: 20px;
+}
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+.pagination a:hover:not(.active) {background-color: #ddd;}

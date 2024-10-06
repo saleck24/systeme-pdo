@@ -1,0 +1,206 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+header {
+    background-color: #3c34de;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.logo-container {
+    background-color: white; /* Couleur de fond blanche */
+    padding: 10px; /* Optionnel : Ajouter un peu d'espace autour de l'image */
+    display: flex; /* Optionnel : Centrer l'image horizontalement */
+    justify-content: center; /* Optionnel : Centrer l'image horizontalement */
+    align-items: center; /* Optionnel : Centrer l'image verticalement */
+
+}
+
+.logo-image {
+    max-width: 30%; /* S'assurer que l'image s'adapte à la taille de la div */
+    height: auto; /* Conserver les proportions de l'image */
+}
+
+/* Style pour supprimer les décorations de lien */
+.logout-link {
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte actuelle */
+}
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    filter: brightness(0) invert(1);
+}
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Réduit l'espacement entre l'icône et le texte */
+    font-size: 16px; /* Ajustez la taille du texte si nécessaire */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+h1,h2{
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #1990df;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Formulaire */
+form {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border: none;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+fieldset {
+    width: 70%; /* Largeur du fieldset */
+    margin: 0 auto; /* Centre le fieldset horizontalement */
+    padding: 20px; /* Espace intérieur du fieldset */
+    text-align: center; /* Centre le texte à l'intérieur du fieldset */
+    
+}
+legend {
+    font-size: 24px; 
+    font-weight: bold;
+}
+
+
+.submit-button {
+    background-color: #4CAF50; /* Vert pour le bouton de soumission */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+
+/* Pagination */
+.pagination {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.pagination a {
+    color: #008015;
+    text-decoration: none;
+    padding: 8px 16px;
+    margin: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.pagination a:hover {
+    background-color: #06cf1e;
+    color: white;
+}
+
+.pagination strong {
+    padding: 8px 16px;
+    margin: 4px;
+    border: 1px solid #00800b;
+    border-radius: 4px;
+    background-color: #30ad03;
+    color: white;
+}
+
+/* Boutons de retour */
+.button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.btn-blue {
+    padding: 10px 20px;
+    background-color: #0771db;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn-blue:hover {
+    background-color: #003060;
+}
+ /* Style pour les statuts */
+.valide {
+    font-weight: bold;
+    color: green;
+}
+.en-attente {
+    font-weight: bold;
+    color: red;
+}
+
+/* Style pour le bouton 'Soumettre la demande' */
+.submit-container button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-container button:hover {
+    background-color: darkblue;
+}
+
+/* Style pour la barre de recherche légèrement à droite */
+.search-container {
+    text-align: right;
+    margin-right: 20px;
+}

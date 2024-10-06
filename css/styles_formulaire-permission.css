@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+header {
+    background-color: #371fec;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+.logo-container {
+    background-color: white; /* Couleur de fond blanche */
+    padding: 10px; /* Optionnel : Ajouter un peu d'espace autour de l'image */
+    display: flex; /* Optionnel : Centrer l'image horizontalement */
+    justify-content: center; /* Optionnel : Centrer l'image horizontalement */
+    align-items: center; /* Optionnel : Centrer l'image verticalement */
+
+}
+
+.logo-image {
+    max-width: 30%; /* S'assurer que l'image s'adapte à la taille de la div */
+    height: auto; /* Conserver les proportions de l'image */
+}
+/* Style pour supprimer les décorations de lien */
+.logout-link {
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte actuelle */
+}
+.logout img {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    filter: brightness(0) invert(1);
+}
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Réduit l'espacement entre l'icône et le texte */
+    font-size: 16px; /* Ajustez la taille du texte si nécessaire */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*padding: 0 20px;*/
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    margin: auto; /* Centre horizontalement le conteneur */
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+}
+.container > div {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+hr {
+    width: 100%;
+    border: none;
+    border-top: 2px solid #0b0b0b;
+    margin: 10px 0;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"] {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: darkblue;
+}
+.btn-blue {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-blue:hover {
+    background-color: #0056b3;
+}
+.btn-container {
+    text-align: center; /* Centre le contenu à l'intérieur du div */
+    margin-top: 20px;   /* Ajoute un espace au-dessus du bouton */
+}
+
+.success-message {
+    background-color: #dff0d8;
+    color: #1da01f;
+    padding: 5px;
+    border: 1px solid #d6e9c6;
+    border-radius: 5px;
+    width: 80%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+

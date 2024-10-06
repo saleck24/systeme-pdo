@@ -1,0 +1,45 @@
+/* Sidebar fixe et collée à gauche */
+.sidebar {
+    position: fixed;
+    top: 100px; /* Aligne avec la hauteur du header */
+    left: 0;
+    width: 270px; /* Largeur de la sidebar */
+    height: calc(100vh - 60px); /* Prend toute la hauteur de l'écran sauf celle du header */
+    background-color: #fcfdff;
+    z-index: 999; /* Toujours sous le header */
+    overflow-y: auto;
+}
+.menu-logo {
+    max-width: 99%;         /* S'assure que l'image ne dépasse pas la sidebar */
+    height: auto;           /* Maintient le ratio d'aspect de l'image */
+}
+.custom-hr {
+    border: none;            /* Supprime les bordures par défaut */
+    height: 2px;            /* Définit la hauteur du trait */
+    background-color: #0f56c8; /* Couleur du trait */
+    width: 80%;              /* Longueur du trait */
+    margin: 10px auto;      /* Centre le trait et ajoute une marge */
+}
+
+.menu-header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.arrow {
+    transition: transform 0.3s;
+    margin-right: 10px; /* Espace entre la flèche et le texte */
+}
+
+.collapse {
+    display: none; /* Masquer le contenu par défaut */
+}
+
+.collapse.show {
+    display: block; /* Afficher le contenu lorsqu'il est actif */
+}
+
+.collapse.show + .menu-header .arrow {
+    transform: rotate(90deg); /* Rotation de la flèche lors de l'ouverture */
+}

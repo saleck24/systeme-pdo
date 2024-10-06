@@ -1,0 +1,349 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fbe9e7;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
+header {
+    background-color: #371fec;
+    color: rgb(244, 244, 244);
+    padding: 10px 20px;
+    text-align: center;
+}
+.welcome-message {
+    text-align: center; /* Centrer le texte */
+    font-size: 24px; /* Taille de police plus grande */
+    font-weight: bold; /* Texte en gras */
+    color: #333; /* Couleur du texte */
+   
+   
+}
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+/* Styles spécifiques pour la modal de changement de mot de passe */
+.change-password-modal .modal-content {
+    background-color: #fce4ec; /* Couleur de fond rose clair pour la modal de changement de mot de passe */
+    width: 50%; /* Largeur plus étroite pour la modal de changement de mot de passe */
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Centrer le titre de la modal */
+.modal-title {
+    text-align: center;
+    margin-bottom: 20px; /* Espace sous le titre */
+}
+
+
+.logo-container {
+    background-color: white; /* Couleur de fond blanche */
+    padding: 10px; /* Optionnel : Ajouter un peu d'espace autour de l'image */
+    display: flex; /* Optionnel : Centrer l'image horizontalement */
+    justify-content: center; /* Optionnel : Centrer l'image horizontalement */
+    align-items: center; /* Optionnel : Centrer l'image verticalement */
+}
+
+.logo-image {
+    max-width: 30%; /* S'assurer que l'image s'adapte à la taille de la div */
+    height: auto; /* Conserver les proportions de l'image */
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*padding: 0 20px;*/
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+}
+
+/* Styles pour le bouton hamburger */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-right: 20px;
+    /*z-index: 1100;*/ /* S'assure que le bouton est au-dessus de la fenêtre coulissante */
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 2px;
+    background-color: white; /* Couleur des traits */
+    transition: all 0.3s ease;
+}
+
+/* Styles pour la fenêtre coulissante */
+.slide-out-panel {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Cache la fenêtre en dehors de l'écran */
+    width: 250px;
+    height: 100%;
+    background-color: #333; /* Couleur de fond de la fenêtre */
+    color: white;
+    padding: 0px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    z-index: 1000; /* Place la fenêtre au-dessus de tous les autres éléments */
+}
+/* Styles pour les liens et les images dans la fenêtre coulissante */
+.slide-out-panel a {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    text-decoration: none; /* Supprime le soulignement des liens */
+    color: white; /* Vous pouvez ajuster la couleur si nécessaire */
+}
+
+.slide-out-panel a img {
+    filter: invert(1); /* Inverse les couleurs de l'image */
+    width: 20px; /* Ajustez la taille de l'image selon votre préférence */
+    height: 20px; /* Assurez-vous que l'image garde une bonne proportion */
+    margin-right: 10px; /* Espace entre l'image et le texte */
+}   
+.panel-content {
+    margin-top: 60px; /* Ajoute de l'espace pour ne pas cacher le contenu */
+    padding-left: 20px; /* Décale le contenu vers la droite */
+}
+
+/* Classe active pour afficher la fenêtre coulissante */
+.slide-out-panel.active {
+    left: 0; /* Affiche la fenêtre en la faisant glisser */
+}
+
+
+.notifications {
+    margin-right: 20px;
+}
+
+.notification-icon img,
+.logout img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+.notification-icon {
+    position: relative;
+}
+
+.notification-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white; /* Texte en blanc */
+    border-radius: 40%;
+    padding: 5px; /* Ajuster si nécessaire pour l'espacement */
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid red; /* Bordure rouge pour simuler le padding */
+}
+
+.logout img {
+    margin-left: 10px;
+}
+
+.logout a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+.welcome-message {
+    text-align: center; /* Centrer le texte */
+    font-size: 24px; /* Taille de police plus grande */
+    font-weight: bold; /* Texte en gras */
+    margin-bottom: 20px; /* Espace en bas pour séparer le texte du reste */
+    color: #333; /* Couleur du texte */
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.form-item {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.form-item:hover {
+    transform: scale(1.05);
+}
+
+.form-item img {
+    max-width: 50px;
+    margin-bottom: 10px;
+}
+
+.form-item div {
+    font-size: 1.2em;
+}
+
+.form-item a {
+    text-decoration: none;
+}
+
+.form-item a:hover {
+    text-decoration: none;
+}
+/* Styles de la modal */
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Centrer le titre de la modal */
+.modal-title {
+    text-align: center;
+    margin-bottom: 20px; /* Espace sous le titre */
+}
+.Change_pswd img{
+    margin-left: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Style pour le bouton bleu */
+.btn-blue {
+    background-color: blue; /* Fond bleu */
+    color: white; /* Texte blanc */
+    padding: 10px 15px; /* Espacement interne */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointeur */
+    font-size: 14px; /* Taille du texte */
+    font-weight: bold; /* Texte en gras */
+}
+
+.btn-blue:hover {
+    background-color: darkblue; /* Couleur de fond au survol */
+}
+
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Ajuster la taille des icônes */
+    height: 20px; /* Ajuster la taille des icônes */
+    pointer-events: none; /* Assurer que les clics ne passent pas à travers l'icône */
+}
+.input-icon-lock {
+    left: 10px; /* Positionne l'icône de verrouillage à gauche */
+}
+.input-icon-eye.toggle-password {
+    right: 10px; /*  Positionne l'icône de l'œil à droite */
+    cursor: pointer;
+    pointer-events: auto; /* Assurer que l'icône de l'œil soit cliquable */
+}
+.input-group {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 35px 10px 35px; /* Ajuster le padding pour tenir compte des icônes */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Assure que la largeur du champ de saisie prend en compte le padding */
+}
+.copyright {
+    text-align: center; /* Centrer le texte de copyright */
+    margin-top: 20px; /* Espacement au-dessus du texte */
+    font-size: 13px; /* Taille de la police */
+    font-weight: bold;
+    color: #081a77; /* Couleur du texte */
+}

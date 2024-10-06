@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 60px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.logo img {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Ajuster la taille des icônes */
+    height: 20px; /* Ajuster la taille des icônes */
+    pointer-events: none; /* Assurer que les clics ne passent pas à travers l'icône */
+}
+
+.input-icon-email {
+    left: 5px; /* Positionne l'icône de l'email à gauche */
+}
+
+.input-icon-lock {
+    left: 5px; /* Positionne l'icône de verrouillage à gauche */
+}
+
+.input-icon-eye.toggle-password {
+    right: 10px; /*  Positionne l'icône de l'œil à droite */
+    cursor: pointer;
+    pointer-events: auto; /* Assurer que l'icône de l'œil soit cliquable */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 10px 10px 30px; /* Ajuster le padding pour tenir compte des icônes */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    display: block;
+    width: 50%; /* Diminuer la taille du bouton */
+    padding: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 auto; /* Centrer le bouton */
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.8); /* Optionnel : pour un effet de transparence */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.loader img {
+    width: 100px;
+    height: 100px;
+}
+.copyright {
+    text-align: center; /* Centrer le texte de copyright */
+    margin-top: 20px; /* Espacement au-dessus du texte */
+    font-size: 13px; /* Taille de la police */
+    font-weight: bold;
+    color: #081a77; /* Couleur du texte */
+}
+
+/* style du bouton "OK" de la Swal.fire */
+.my-confirm-button {
+    background-color: #4a0a7e; /* Couleur de fond verte */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    text-align: left;
+    padding: 10px 40px; /* Espacement interne */
+    border-radius: 5px; /* Coins arrondis */
+    font-size: 16px; /* Taille de la police */
+    transition: background-color 0.3s ease; /* Transition pour le changement de couleur */
+}
+
+.my-confirm-button:hover {
+    background-color: #0d60c6; /* Couleur de fond au survol */
+}
+
+
+

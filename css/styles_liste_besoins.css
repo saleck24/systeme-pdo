@@ -1,0 +1,250 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fbe9e7;
+    margin: 0;
+    padding: 0;
+    
+}
+header {
+    background-color: #371fec;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+.logo-container {
+    background-color: white; /* Couleur de fond blanche */
+    padding: 10px; /* Optionnel : Ajouter un peu d'espace autour de l'image */
+    display: flex; /* Optionnel : Centrer l'image horizontalement */
+    justify-content: center; /* Optionnel : Centrer l'image horizontalement */
+    align-items: center; /* Optionnel : Centrer l'image verticalement */
+
+}
+
+.logo-image {
+    max-width: 30%; /* S'assurer que l'image s'adapte à la taille de la div */
+    height: auto; /* Conserver les proportions de l'image */
+}
+
+/* Style pour supprimer les décorations de lien */
+.logout-link {
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte actuelle */
+}
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    filter: brightness(0) invert(1);
+}
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Réduit l'espacement entre l'icône et le texte */
+    font-size: 16px; /* Ajustez la taille du texte si nécessaire */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+.logout img {
+    margin-left: 10px;
+}
+
+.logout a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #3036ce;
+    color: white;
+}
+
+tr{
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.btn-blue {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-violet {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ff00fb;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-yellow {
+    background-color: rgb(164, 31, 148);
+    border: none;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-margin-right {
+    margin-right: 10px; 
+}
+
+.btn-yellow a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.btn-green {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #04c704;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.validate-button {
+    background-color: rgb(62, 62, 186);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+}
+.validate-button :hover {
+    background-color: darkblue;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+.popup.show {
+    display: block;
+}
+.popup-close {
+    float: right;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+.popup-content {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+.print-button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1em;
+}
+.print-button:hover {
+    background-color: darkblue;
+}
+
+/* Badge styles for validation statuses */
+.badge {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: white;
+    display: inline-block;
+}
+
+.badge.pending {
+    background-color: red;
+}
+
+.badge.validated {
+    background-color: green;
+}

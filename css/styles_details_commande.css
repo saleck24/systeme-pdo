@@ -1,0 +1,337 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fbe9e7;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #371fec;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+.logo-container {
+    background-color: white; /* Couleur de fond blanche */
+    padding: 10px; /* Optionnel : Ajouter un peu d'espace autour de l'image */
+    display: flex; /* Optionnel : Centrer l'image horizontalement */
+    justify-content: center; /* Optionnel : Centrer l'image horizontalement */
+    align-items: center; /* Optionnel : Centrer l'image verticalement */
+
+}
+
+.logo-image {
+    max-width: 30%; /* S'assurer que l'image s'adapte à la taille de la div */
+    height: auto; /* Conserver les proportions de l'image */
+}
+
+/* Style pour supprimer les décorations de lien */
+.logout-link {
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte actuelle */
+}
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    filter: brightness(0) invert(1);
+}
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Réduit l'espacement entre l'icône et le texte */
+    font-size: 16px; /* Ajustez la taille du texte si nécessaire */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}   
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr{
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.btn-blue {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-red {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-red:hover {
+    background-color: #c82333;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Espacement entre les boutons */
+    align-items: center; /* Alignement vertical */
+}
+
+
+
+/* Styles pour la modal */
+.modal {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto; /* Permet de faire défiler la modal si elle est trop grande */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Largeur de la modal */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    animation: slide-down 0.3s; /* Animation d'affichage */
+}
+
+/* Styles pour les champs de formulaire dans la modal */
+.modal-content form label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.modal-content form label input,
+.modal-content form label select {
+    flex: 1;
+    padding: 8px;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Animation pour l'affichage de la modal */
+@keyframes slide-down {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.message {
+    font-weight: bold; /* Texte en gras */
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+/* Conteneur pour les toasts */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Style de base pour les toasts */
+.toast {
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Toast de succès */
+.toast-success {
+    background-color: #28a745;
+}
+
+/* Toast d'erreur */
+.toast-error {
+    background-color: #dc3545;
+}
+
+/* Icône dans le toast */
+.toast-icon {
+    margin-right: 10px;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+/* Animation fade-in and fade-out */
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.hide {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Style pour le bouton de fermeture */
+.close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.close-btn:hover {
+    opacity: 1;
+}
+
+/* Adaptation pour les écrans mobiles */
+@media (max-width: 600px) {
+    .toast-container {
+        top: 10px;
+        right: 10px;
+        width: 90%;
+    }
+
+    .toast {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+/* Style pour la pagination */
+.pagination {
+    display: flex;
+    justify-content: flex-end; /* Aligne la pagination à droite */
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.pagination a, .pagination strong {
+    padding: 8px 16px;
+    margin: 0 4px;
+    background-color: #4CAF50; /* Couleur de fond des liens */
+    color: white; /* Couleur du texte */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #45a049; /* Couleur au survol */
+}
+
+.pagination strong {
+    background-color: #333; /* Couleur pour la page active */
+    font-weight: bold;
+    color: white;
+}
+
+
+
+
+
+

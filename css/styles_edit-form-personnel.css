@@ -1,0 +1,51 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 100% de la hauteur de la vue (viewport height) */
+    margin: 0; /* Supprime les marges par défaut du corps */
+}
+
+
+.center-container {
+    width: 80%; /* Largeur de la div contenant le formulaire */
+    max-width: 800px; /* Largeur maximale pour s'assurer qu'elle reste lisible */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: center; /* Centre le texte dans la div */
+}
+
+form {
+    display: inline-block; /* Permet de centrer le formulaire */
+}
+
+form label, form input, form select {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left; /* Aligne le texte à gauche */
+}
+
+form input[type="text"], form select, form input[type="file"], form input[type="submit"] {
+    width: 100%; /* Largeur pleine pour s'adapter à la div parent */
+    box-sizing: border-box; /* Garantit que la largeur inclut le padding et le border */
+    padding: 8px; /* Espace autour des champs */
+    border: 1px solid #ccc; /* Bordure légère */
+    border-radius: 4px; /* Coins arrondis */
+}
+
+form input[type="submit"] {
+    margin-top: 20px; /* Espace supplémentaire au-dessus du bouton */
+    background-color: Green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 50%; /* Largeur du bouton */
+    padding: 10px; /* Espace à l'intérieur du bouton */
+    font-size: 14px; /* Taille de la police */
+    text-align: center; /* Centre le texte à l'intérieur du bouton */
+    display: block; /* Permet de centrer le bouton */
+    margin: 0 auto; /* Centre le bouton horizontalement */
+}

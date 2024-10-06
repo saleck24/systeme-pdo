@@ -1,0 +1,363 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+header {
+    background-color: #371fec;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+.logo-container {
+    background-color: white; /* Couleur de fond blanche */
+    padding: 10px; /* Optionnel : Ajouter un peu d'espace autour de l'image */
+    display: flex; /* Optionnel : Centrer l'image horizontalement */
+    justify-content: center; /* Optionnel : Centrer l'image horizontalement */
+    align-items: center; /* Optionnel : Centrer l'image verticalement */
+
+}
+
+.logo-image {
+    max-width: 30%; /* S'assurer que l'image s'adapte à la taille de la div */
+    height: auto; /* Conserver les proportions de l'image */
+}
+
+/* Style pour supprimer les décorations de lien */
+.logout-link {
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte actuelle */
+}
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    filter: brightness(0) invert(1);
+}
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Réduit l'espacement entre l'icône et le texte */
+    font-size: 16px; /* Ajustez la taille du texte si nécessaire */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+fieldset {
+    width: 95%; /* Largeur du fieldset */
+    margin: 0 auto; /* Centre le fieldset horizontalement */
+    padding: 20px; /* Espace intérieur du fieldset */
+    text-align: center; /* Centre le texte à l'intérieur du fieldset */
+}
+legend {
+    font-size: 24px; /* Ajuste la taille selon tes préférences */
+    font-weight: bold; /* Si tu souhaites garder le texte en gras */
+}
+
+.btn-save {
+    background-color: rgb(48, 58, 244); /* Couleur de fond verte */
+    color: white; /* Couleur du texte en blanc */
+    border: none; /* Pas de bordure */
+    padding: 10px 20px; /* Espacement autour du texte */
+    cursor: pointer; /* Curseur pointer */
+    font-size: 16px; /* Taille de la police */
+    border-radius: 5px; /* Coins arrondis */
+}
+
+
+
+.personnel-table { /* Applique le style uniquement à la table avec la classe personnel-table */
+    width: 100%;
+    /* Fusionne les bordures des cellules */
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.personnel-table, .personnel-table th, .personnel-table td {
+    border: 1px solid black;/* Ajoute une bordure noire autour de la table et des cellules */
+}
+
+.personnel-table th, .personnel-table td {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.personnel-table th {
+    background-color: orange;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    border-radius: 4px;
+}
+
+.btn-edit {
+    background-color: Green;
+    color: white;
+}
+
+.btn-delete {
+    background-color: Red;
+    color: white;
+}
+
+/* Change la couleur de fond du bouton "Edit" au survol */
+.btn-edit:hover {
+    background-color: #45a049;
+}
+
+/* Change la couleur de fond du bouton Delete" au survol */
+.btn-delete:hover {
+    background-color: #d32f2f;
+}
+.btn-blue {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-blue:hover {
+    background-color: #0056b3;
+}
+
+.btn-info {
+    background-color: rgb(25, 0, 255);
+    color: white;
+}
+
+/* La modal qui récupère les information du personnel*/
+.modal {
+    display: none; /* Masqué par défaut */
+    position: fixed; /* Reste en place */
+    z-index: 1; /* Au-dessus */
+    left: 0;
+    top: 0;
+    width: 100%; /* Pleine largeur */
+    height: 100%; /* Pleine hauteur */
+    overflow: auto; /* Activer le scrolling si nécessaire */
+    background-color: rgb(0,0,0); /* Couleur noire avec opacité */
+    background-color: rgba(0,0,0,0.4); /* Couleur noire avec opacité */
+}
+
+/* Contenu de la modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centré verticalement */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largeur */
+}
+@media print {
+    .btn-print, .btn-blue ,button{
+        display: none;
+    }
+    /* Masquer le bouton de fermeture (X) */
+    .close {
+        display: none;
+    }
+
+    /* Supprimer l'ombre du cadre */
+    .modal-content {
+        box-shadow: none;
+    }
+}
+
+/* Le bouton fermer (x) */
+.close {
+    color: #b71111;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Style de pagination */
+.pagination {
+    display: inline-block;
+    margin-top: 20px;
+    display: flex; /* Utilise flexbox pour un meilleur alignement */
+    justify-content: flex-end; /* Aligne les éléments à droite */
+    text-align: right; /* Aligne le texte à droite */
+}
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    
+
+}
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+/* Style de base pour la modal */
+#editModal {
+    display: none; /* Masqué par défaut */
+    position: fixed; /* Toujours visible lors du défilement */
+    z-index: 1000; /* Au-dessus des autres éléments */
+    left: 0;
+    top: 0;
+    width: 100%; /* Prendre toute la largeur */
+    height: 100%; /* Prendre toute la hauteur */
+    overflow: auto; /* Activer le défilement si le contenu dépasse */
+    background-color: rgba(0, 0, 0, 0.5); /* Fond noir avec transparence */
+}
+
+/* Contenu de la modal */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Centrer la modal verticalement et horizontalement */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Largeur de la modal (peut être ajustée) */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Ombre pour l'effet de profondeur */
+}
+.modal-title {
+    text-align: center; /* Centre le texte horizontalement */
+    margin: 0; /* Supprime la marge par défaut */
+    padding: 20px 0; /* Ajoute un espace autour du texte */
+}
+
+
+/* Style du bouton de fermeture (X) */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Styles pour les éléments du formulaire */
+#editForm {
+    display: flex;
+    flex-direction: column;
+}
+/* Style pour le titre de la modal */
+.modal-content h2 {
+    text-align: center; /* Centrer le texte horizontalement */
+    font-size: 24px; /* Taille du texte, ajustable selon le besoin */
+    margin-bottom: 20px; /* Espace en dessous pour bien séparer du formulaire */
+    color: #333; /* Couleur du texte */
+}
+/* Style pour le bouton 'Edit' */
+.editButton {
+    background-color: #28a745; /* Couleur de fond verte */
+    color: white; /* Couleur du texte en blanc */
+    border: none; /* Pas de bordure */
+    padding: 10px 20px; /* Espace intérieur du bouton */
+    font-size: 16px; /* Taille de la police */
+    border-radius: 5px; /* Bords arrondis */
+    cursor: pointer; /* Curseur pointer pour indiquer que c'est cliquable */
+}
+
+/* Ajouter un effet de survol */
+.editButton:hover {
+    background-color: #218838; /* Vert un peu plus foncé au survol */
+}
+
+
+
+#editForm label {
+    margin-bottom: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#editForm input[type="text"],
+#editForm input[type="email"],
+#editForm input[type="number"],
+#editForm input[type="date"],
+#editForm select {
+    width: 70%; /* Ajuste la largeur des champs */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#editForm input[type="file"] {
+    border: none;
+}
+
+#editForm input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #28a745; /* Couleur verte pour le bouton Mettre à jour */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#editForm input[type="submit"]:hover {
+    background-color: #218838; /* Changement de couleur au survol */
+}
+
+
+/* Responsive pour petits écrans */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 90%; /* Modal prend presque toute la largeur sur les petits écrans */
+    }
+
+    #editForm label {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #editForm input[type="text"],
+    #editForm input[type="email"],
+    #editForm input[type="number"],
+    #editForm input[type="date"],
+    #editForm select {
+        width: 100%; /* Champs prennent toute la largeur */
+    }
+}

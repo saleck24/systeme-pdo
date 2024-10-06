@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #3c34de;
+    color: #fff;
+    padding: 10px 0;
+}
+.btn-return{
+    text-align: center;
+}
+
+.logo-container {
+    background-color: white; /* Couleur de fond blanche */
+    padding: 10px; /* Optionnel : Ajouter un peu d'espace autour de l'image */
+    display: flex; /* Optionnel : Centrer l'image horizontalement */
+    justify-content: center; /* Optionnel : Centrer l'image horizontalement */
+    align-items: center; /* Optionnel : Centrer l'image verticalement */
+
+}
+.copyright {
+    text-align: center; /* Centrer le texte de copyright */
+    margin-top: 20px; /* Espacement au-dessus du texte */
+    font-size: 13px; /* Taille de la police */
+    font-weight: bold;
+    color: #081a77; /* Couleur du texte */
+}
+
+.logo-image {
+    max-width: 30%; /* S'assurer que l'image s'adapte à la taille de la div */
+    height: auto; /* Conserver les proportions de l'image */
+}
+
+/* Style pour supprimer les décorations de lien */
+.logout-link {
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte actuelle */
+}
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    filter: brightness(0) invert(1);
+}
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Réduit l'espacement entre l'icône et le texte */
+    font-size: 16px; /* Ajustez la taille du texte si nécessaire */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.title {
+    font-size: 24px;
+}
+/* Style pour supprimer les décorations de lien */
+.logout-link {
+    text-decoration: none; /* Retire le soulignement des liens */
+    color: inherit; /* Garde la couleur du texte actuelle */
+}
+.logout img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+
+}
+
+main {
+    padding: 20px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    flex-wrap: wrap;
+    gap: 20px; /* Réduire l'espacement entre les éléments */
+    margin-top: 50px; /* Ajouter un espace en haut pour centrer verticalement */
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    padding: 10px; /* Ajouter un peu de padding pour un meilleur espacement interne */
+    width: 150px; /* Réduire la largeur pour rapprocher les items */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour améliorer le design */
+    border-radius: 8px; /* Ajouter des coins arrondis pour un look moderne */
+}
+
+.form-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.form-item img {
+    width: 100px;
+    height: 100px; 
+    margin-bottom: 10px;
+}
+
+.form-item div {
+    font-size: 16px;
+}
+.btn-blue {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-blue:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fbe9e7;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #371fec;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logout a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #0f0f11;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #371fec;
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    font-weight: bold;
+}
+
+td a {
+    margin-right: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.btn-edit {
+    background-color: #ffcc00; /* Jaune pour modifier */
+}
+
+.btn-block {
+    background-color: #dc3545; /* Rouge pour bloquer */
+}
+
+.btn-unblock {
+    background-color: #28a745; /* Vert pour débloquer */
+}
+
+td a:hover {
+    opacity: 0.8; /* Effet de survol pour les liens */
+}
+
+.btn-blue {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-blue:hover {
+    background-color: #0056b3;
+}
+
