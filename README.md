@@ -1,43 +1,43 @@
 # Système de Gestion d'Entreprise
 
-## Aperçu
+## 🎯 Aperçu
 Système complet de gestion d'entreprise développé en **PHP avec PDO**, offrant une solution robuste, sécurisée et évolutive pour centraliser l'administration des ressources humaines, des commandes, des stocks et des demandes de l'entreprise.
 
 ---
 
-## Fonctionnalités Principales
+## ✨ Fonctionnalités Principales
 
-### Gestion des Utilisateurs
+### 👥 Gestion des Utilisateurs
 - **Création et gestion des utilisateurs** : Ajout, modification et suppression d'utilisateurs
 - **Système de rôles et permissions** : Contrôle d'accès granulaire basé sur les rôles
 - **Tableau de bord utilisateurs** : Vue personnalisée selon le profil
 - **Gestion des sessions sécurisées** : Authentification robuste et déconnexion
 - **Contrôle des autorisations** : Pages dédiées pour les accès non autorisés
 
-### Gestion des Commandes
+### 📋 Gestion des Commandes
 - **Suivi complet des commandes** : Création, visualisation et gestion des commandes
 - **Modification des détails de commandes** : Interface dédiée pour ajuster les paramètres
 - **Notifications en temps réel** : Alertes pour les changements de statut
 
-### Gestion des Stocks
+### 📦 Gestion des Stocks
 - **Suivi du stock carburant** : Inventaire en temps réel avec modifications faciles
 - **Gestion automatisée** : Intégration avec les commandes
 
-### Formulaires Dynamiques
+### 📝 Formulaires Dynamiques
 - **Formulaires de personnel** : Ajout et gestion des informations personnelles
 - **Formulaires d'avances** : Gestion des demandes d'avances de salaire
 - **Modification et suppression sécurisées** : Interfaces dédiées pour chaque type de formulaire
 
-### Système de Notifications
+### 🔔 Système de Notifications
 - **Notifications intelligentes** : Alertes pour les demandes et mises à jour
 - **Notifications d'expression de besoins** : Suivi des demandes spéciales
 
-### Administration
+### ⚙️ Administration
 - **Tableau des paramètres application** : Configuration centralisée
 - **Paramètres administrateur** : Gestion des configurations système
 - **Impression de permissions** : Documentation des droits d'accès
 
-### Sécurité
+### 🔒 Sécurité
 - **Prévention des injections SQL** : Utilisation de PDO avec requêtes préparées
 - **Authentification sécurisée** : Gestion des sessions utilisateur
 - **Contrôle d'accès** : Vérification des permissions à chaque action
@@ -45,18 +45,18 @@ Système complet de gestion d'entreprise développé en **PHP avec PDO**, offran
 
 ---
 
-## Technologies Utilisées
+## 🛠️ Technologies Utilisées
 
 | Technologie | Utilisation |
 |---|---|
 | **PHP (PDO)** | Backend sécurisé et flexible pour interactions base de données |
 | **MySQL** | Gestion de la base de données relationnelle |
 | **HTML/CSS/JavaScript** | Interface utilisateur responsive |
-| **WAMP** | Environnement de développement local |
+| **WAMP/XAMPP** | Environnement de développement local |
 
 ---
 
-## Architecture du Projet
+## 📁 Architecture du Projet
 
 ```
 systeme-pdo/
@@ -85,7 +85,7 @@ systeme-pdo/
 
 ---
 
-## Installation
+## 🚀 Installation
 
 ### Prérequis
 - **WAMP** ou **XAMPP** installé et en fonctionnement
@@ -124,7 +124,7 @@ systeme-pdo/
 
 ---
 
-## Points Forts du Projet
+## 💡 Points Forts du Projet
 
 ✅ **Sécurité maximale** : PDO avec requêtes préparées  
 ✅ **Scalabilité** : Architecture modulaire et extensible  
@@ -135,7 +135,7 @@ systeme-pdo/
 
 ---
 
-## Apprentissages et Compétences Développées
+## 🎓 Apprentissages et Compétences Développées
 
 - Architecture de base de données relationnelle
 - Programmation orientée objet en PHP
@@ -146,3 +146,13 @@ systeme-pdo/
 - Gestion d'erreurs et debugging
 
 ---
+
+## 📞 Support
+
+Pour toute question ou amélioration, consultez le code source ou ouvrez une issue sur le dépôt.
+
+---
+
+**Auteur :** saleck24  
+**Licence :** Voir fichier LICENSE  
+**Dernière mise à jour :** 2026
