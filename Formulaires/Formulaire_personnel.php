@@ -12,12 +12,22 @@ if (isset($_POST['eng'])){
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $departement = $_POST['departement'];
-    $photo = $_FILES['photo']['name'];// Récupère le nom de l'image
-    $tphoto = $_FILES['photo']['tmp_name'];// Récupère le chemin temporaire de l'image
-    move_uploaded_file($tphoto,".././img/$photo");// Déplace l'image vers le dossier 'img'
+    $photo = '';
+    // Sécurisation de l'upload d'image
+    if (isset($_FILES['photo']) && $_FILES['photo']['error'] == UPLOAD_ERR_OK) {
+        $allowedExts = ["jpg", "jpeg", "png", "gif"];
+        $extension = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
+        if (in_array($extension, $allowedExts)) {
+            $photo = uniqid('img_') . '.' . $extension;
+            move_uploaded_file($_FILES['photo']['tmp_name'], "../img/" . $photo);
+        } else {
+            header("Location: Formulaire_personnel.php?status=error&type=add&message=" . urlencode("Extension invalide."));
+            exit();
+        }
+    }
+
     $categorie = $_POST['categorie'];
     $salaire = $_POST['salaire'];
-
     $nni_emp = $_POST['nni_emp'];
     $matricule_emp = $_POST['matricule_emp'];
     $lieu_travail = $_POST['lieu_travail'];
@@ -26,18 +36,18 @@ if (isset($_POST['eng'])){
     $emailsup = $_POST['emailsup'];
     $datesaisie = $_POST['datesaisie'];
 
-
-    // Récupérer le num_departement basé sur le nom du département
-    $result = mysqli_query($conn, "SELECT num_departement FROM departement WHERE departement = '$departement'");
+    // Récupérer le num_departement basé sur le nom du département avec requête préparée
+    $stmt_dep = mysqli_prepare($conn, "SELECT num_departement FROM departement WHERE departement = ?");
+    mysqli_stmt_bind_param($stmt_dep, "s", $departement);
+    mysqli_stmt_execute($stmt_dep);
+    $result = mysqli_stmt_get_result($stmt_dep);
     $row = mysqli_fetch_assoc($result);
-    $num_departement = $row['num_departement'];
+    $num_departement = $row ? $row['num_departement'] : null;
 
-
-    // Insère les données dans la table 'personnel'
-    $Ajout = mysqli_query($conn,"insert into personnel(nom, prenom, photo, num_departement, categorie, salaire,nni_emp,matricule_emp,lieu_travail,
-                        fonction,suphierarchie,emailsup, datesaisie) values
-                        ('$nom','$prenom', '$photo', '$num_departement','$categorie','$salaire','$nni_emp', '$matricule_emp', 
-                        '$lieu_travail', '$fonction', '$suphierarchie', '$emailsup', '$datesaisie')");
+    // Insère les données dans la table 'personnel' avec requête préparée
+    $stmt = mysqli_prepare($conn, "INSERT INTO personnel(nom, prenom, photo, num_departement, categorie, salaire, nni_emp, matricule_emp, lieu_travail, fonction, suphierarchie, emailsup, datesaisie) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    mysqli_stmt_bind_param($stmt, "sssisdsssssss", $nom, $prenom, $photo, $num_departement, $categorie, $salaire, $nni_emp, $matricule_emp, $lieu_travail, $fonction, $suphierarchie, $emailsup, $datesaisie);
+    $Ajout = mysqli_stmt_execute($stmt);
 
     if ($Ajout) {
         // Redirige vers la même page avec un message de succès
@@ -69,37 +79,32 @@ if (isset($_POST['updatePersonnel'])) {
     $datesaisie = $_POST['datesaisie'];
 
     // Gérer l'upload de la nouvelle photo si une nouvelle photo est téléchargée
-    if (isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
-        // Dossier de destination
-        $dossier_upload = '../img/';
-        $photo_nom = basename($_FILES['photo']['name']);
-        $destination_fichier = $dossier_upload . $photo_nom;
+    if (isset($_FILES['photo']) && $_FILES['photo']['error'] == UPLOAD_ERR_OK) {
+        $allowedExts = ["jpg", "jpeg", "png", "gif"];
+        $extension = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
+        if (in_array($extension, $allowedExts)) {
+            $photo = uniqid('img_') . '.' . $extension;
+            $destination_fichier = '../img/' . $photo;
 
-        // Déplacer le fichier uploadé dans le dossier de destination
-        if (move_uploaded_file($_FILES['photo']['tmp_name'], $destination_fichier)) {
-            // Si le fichier a été déplacé correctement,mettre à jour la base de données avec le nom du fichier
-            $photo = $photo_nom;
-
-            // Mettre à jour la photo et autres informations dans la base de données.
-            $update = mysqli_query($conn, "UPDATE personnel SET nom = '$nom', prenom = '$prenom', num_departement = 
-                    (SELECT num_departement FROM departement WHERE departement = '$departement'), 
-                    categorie = '$categorie', salaire = '$salaire', nni_emp = '$nni_emp', 
-                    matricule_emp = '$matricule_emp', lieu_travail = '$lieu_travail', 
-                    fonction = '$fonction', suphierarchie = '$suphierarchie', 
-                    emailsup = '$emailsup', datesaisie = '$datesaisie', photo='$photo' WHERE id = '$id'");
-
+            if (move_uploaded_file($_FILES['photo']['tmp_name'], $destination_fichier)) {
+                $stmt = mysqli_prepare($conn, "UPDATE personnel SET nom=?, prenom=?, num_departement=(SELECT num_departement FROM departement WHERE departement=?), categorie=?, salaire=?, nni_emp=?, matricule_emp=?, lieu_travail=?, fonction=?, suphierarchie=?, emailsup=?, datesaisie=?, photo=? WHERE id=?");
+                mysqli_stmt_bind_param($stmt, "ssssdssssssssi", $nom, $prenom, $departement, $categorie, $salaire, $nni_emp, $matricule_emp, $lieu_travail, $fonction, $suphierarchie, $emailsup, $datesaisie, $photo, $id);
+                $update = mysqli_stmt_execute($stmt);
+            } else {
+                $errorMessage = "Erreur lors de l'upload de l'image.";
+                header("Location: Formulaire_personnel.php?status=error&type=update&message=" . urlencode($errorMessage));
+                exit();
+            }
         } else {
-            //echo "Erreur lors de l'upload de l'image.";
-            $errorMessage = "Erreur lors de l'upload de l'image.";
-            header("Location: Formulaire_personnel.php?status=error&type=update&message=" . urlencode($errorMessage));
+            header("Location: Formulaire_personnel.php?status=error&type=update&message=" . urlencode("Extension invalide."));
             exit();
         }
     } else {
         // Si aucune photo n'est uploadée, mettre à jour seulement les autres champs
-        $update = mysqli_query($conn,"UPDATE personnel SET nom='$nom', prenom='$prenom', departement='$departement', categorie='$categorie', 
-                      salaire='$salaire', nni_emp='$nni', matricule_emp='$matricule', lieu_travail='$lieu_travail', 
-                      fonction='$fonction', suphierarchie='$sup_hierarchie', emailsup='$email_sup', datesaisie='$date_saisie' 
-                      WHERE id='$id'");
+        $stmt = mysqli_prepare($conn, "UPDATE personnel SET nom=?, prenom=?, num_departement=(SELECT num_departement FROM departement WHERE departement=?), categorie=?, salaire=?, nni_emp=?, matricule_emp=?, lieu_travail=?, fonction=?, suphierarchie=?, emailsup=?, datesaisie=? WHERE id=?");
+        // Note : dans le code original, certaines variables étaient fausses comme $nni au lieu de $nni_emp. J'ai corrigé ça.
+        mysqli_stmt_bind_param($stmt, "ssssdsssssssi", $nom, $prenom, $departement, $categorie, $salaire, $nni_emp, $matricule_emp, $lieu_travail, $fonction, $suphierarchie, $emailsup, $datesaisie, $id);
+        $update = mysqli_stmt_execute($stmt);
     }
     // Vérifier si la mise à jour a réussi
     if ($update) {
@@ -115,27 +120,29 @@ if (isset($_POST['updatePersonnel'])) {
 
 //la configuration de la pagination 
 $limit = 3; // Nombre de ligne affichée par page.
-if (isset($_GET["page"])) {
-    $page  = $_GET["page"];
-} else {
-    $page = 1;
-};
+$page = isset($_GET["page"]) ? (int)$_GET["page"] : 1;
 $start_from = ($page - 1) * $limit;
 
-
+$searchParam = "%$search%";
 $query = "SELECT p.*, d.departement, c.Titre AS categorie_titre 
           FROM personnel p 
           LEFT JOIN departement d ON p.num_departement = d.num_departement 
           LEFT JOIN categorie c ON p.categorie = c.Titre 
-          WHERE p.nom LIKE '%$search%' OR p.prenom LIKE '%$search%' OR d.departement LIKE '%$search%'
-          LIMIT $start_from, $limit";
-$lp = mysqli_query($conn, $query);
+          WHERE p.nom LIKE ? OR p.prenom LIKE ? OR d.departement LIKE ?
+          LIMIT ?, ?";
+$stmt_list = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($stmt_list, "sssii", $searchParam, $searchParam, $searchParam, $start_from, $limit);
+mysqli_stmt_execute($stmt_list);
+$lp = mysqli_stmt_get_result($stmt_list);
 
 // Requête pour compter le nombre total de résultats
 $total_query = "SELECT COUNT(*) FROM personnel 
-                WHERE nom LIKE '%$search%' OR prenom LIKE '%$search%' OR num_departement IN 
-                (SELECT num_departement FROM departement WHERE departement LIKE '%$search%')";
-$total_result = mysqli_query($conn, $total_query);
+                WHERE nom LIKE ? OR prenom LIKE ? OR num_departement IN 
+                (SELECT num_departement FROM departement WHERE departement LIKE ?)";
+$stmt_tot = mysqli_prepare($conn, $total_query);
+mysqli_stmt_bind_param($stmt_tot, "sss", $searchParam, $searchParam, $searchParam);
+mysqli_stmt_execute($stmt_tot);
+$total_result = mysqli_stmt_get_result($stmt_tot);
 $total_records = mysqli_fetch_array($total_result)[0];
 $total_pages = ceil($total_records / $limit);
 
@@ -151,25 +158,25 @@ $total_pages = ceil($total_records / $limit);
     <link rel="stylesheet" href="../css/styles_formulaire-personnel.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+</head>
+<body>
     <header>
-        <nav>
+        <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
             <!-- Titre -->
             <div class="logo-container">
-                <img src="../img/LOGO.png" alt="Logo de Kenz Mining SA" class="logo-image">
+                <img src="../img/LOGO.png" alt="Logo de Kenz Mining SA" class="logo-image" onerror="this.style.display='none'">
             </div>
             <!--lien de déconnexion-->
             <a href="../logout.php" class="logout-link">
                 <div class="logout"> 
-                    <img src="../img/icon_logout.png" alt="icon_logout" class="logout">
-                    <p>Logout</p>
+                    <img src="../img/icon_logout.png" alt="icon_logout" class="logout-icon" onerror="this.style.display='none'">
+                    <span>Logout</span>
                 </div>
             </a>
-
         </nav>
     </header>
-</head>
-<body><br><br>
-    <fieldset> 
+
+    <fieldset style="margin-top: 30px;"> 
         <legend> <b>Formulaire Personnel</b></legend>
         <!-- Formulaire de recherche -->
         <div style="text-align: right;">
@@ -276,6 +283,7 @@ $total_pages = ceil($total_records / $limit);
             <br><br>
 
             <!--ajout de la class "personnel-table" pour cibler que la 2ème table avec le CSS-->
+            <div style="overflow-x: auto; max-width: 100%; display: block; border: 1px solid #ccc;">
             <table class="personnel-table" width= "100%" align = "center" border = "1">
                 <tr style= "background-color : Orange;">
                     <th>N° :</th>
@@ -346,6 +354,7 @@ $total_pages = ceil($total_records / $limit);
                 </tr>
                 <?php }?>
             </table>
+            </div>
              <!-- Pagination -->
              <div class="pagination">
                 <?php

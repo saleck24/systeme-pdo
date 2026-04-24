@@ -1,158 +1,92 @@
-# Système de Gestion d'Entreprise
+# Système de Gestion d'Entreprise (ERP/HRM) 🚀
 
-## 🎯 Aperçu
-Système complet de gestion d'entreprise développé en **PHP avec PDO**, offrant une solution robuste, sécurisée et évolutive pour centraliser l'administration des ressources humaines, des commandes, des stocks et des demandes de l'entreprise.
+![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=flat-square&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![Security](https://img.shields.io/badge/Security-Prepared_Statements-success?style=flat-square)
 
----
+## 🎯 Aperçu du Projet
+Ce projet est un **Système complet de gestion d'entreprise (ERP/HRM)** développé initialement lors d'un **stage en entreprise**. Conçu pour centraliser l'administration des ressources humaines, la gestion des stocks, le suivi des commandes et l'attribution des permissions, il n'a finalement pas été adopté par l'entreprise. 
 
-## ✨ Fonctionnalités Principales
-
-### 👥 Gestion des Utilisateurs
-- **Création et gestion des utilisateurs** : Ajout, modification et suppression d'utilisateurs
-- **Système de rôles et permissions** : Contrôle d'accès granulaire basé sur les rôles
-- **Tableau de bord utilisateurs** : Vue personnalisée selon le profil
-- **Gestion des sessions sécurisées** : Authentification robuste et déconnexion
-- **Contrôle des autorisations** : Pages dédiées pour les accès non autorisés
-
-### 📋 Gestion des Commandes
-- **Suivi complet des commandes** : Création, visualisation et gestion des commandes
-- **Modification des détails de commandes** : Interface dédiée pour ajuster les paramètres
-- **Notifications en temps réel** : Alertes pour les changements de statut
-
-### 📦 Gestion des Stocks
-- **Suivi du stock carburant** : Inventaire en temps réel avec modifications faciles
-- **Gestion automatisée** : Intégration avec les commandes
-
-### 📝 Formulaires Dynamiques
-- **Formulaires de personnel** : Ajout et gestion des informations personnelles
-- **Formulaires d'avances** : Gestion des demandes d'avances de salaire
-- **Modification et suppression sécurisées** : Interfaces dédiées pour chaque type de formulaire
-
-### 🔔 Système de Notifications
-- **Notifications intelligentes** : Alertes pour les demandes et mises à jour
-- **Notifications d'expression de besoins** : Suivi des demandes spéciales
-
-### ⚙️ Administration
-- **Tableau des paramètres application** : Configuration centralisée
-- **Paramètres administrateur** : Gestion des configurations système
-- **Impression de permissions** : Documentation des droits d'accès
-
-### 🔒 Sécurité
-- **Prévention des injections SQL** : Utilisation de PDO avec requêtes préparées
-- **Authentification sécurisée** : Gestion des sessions utilisateur
-- **Contrôle d'accès** : Vérification des permissions à chaque action
-- **Déconnexion sécurisée** : Nettoyage des sessions
+Je l'ai donc conservé, **refactorisé, sécurisé et dockerisé** pour en faire un projet de portfolio démontrant mes compétences en : **Architecture Backend (PHP/MySQL)**, **Déploiement DevOps (Docker)**, et **Conception UI/UX fonctionnelle**.
 
 ---
 
-## 🛠️ Technologies Utilisées
+## ✨ Fonctionnalités Clés
 
-| Technologie | Utilisation |
+*   👥 **Ressources Humaines (HRM) :** Gestion complète des employés, fiches d'identification, upload sécurisé de photos de profil, hiérarchie et gestion des départements.
+*   🔒 **Sécurité Avancée :** Protection stricte contre les **injections SQL** via l'utilisation systématique de requêtes préparées (`mysqli_prepare`/`PDO`). Sécurisation des formulaires d'upload (validation MIME/extensions) et hachage des mots de passe.
+*   🐳 **Environnement Conteneurisé (DevOps) :** Application entièrement "Dockerisée" avec `docker-compose`, garantissant que le code fonctionne de la même manière sur n'importe quelle machine, sans configuration complexe.
+*   📦 **Gestion Opérationnelle :** Suivi des commandes, gestion des stocks (ex: carburant), traitement des formulaires d'avance sur salaire et système de notifications en temps réel.
+*   ⚙️ **Administration & Rôles :** Tableau de bord dynamique avec contrôle d'accès basé sur les rôles (RBAC). Les vues s'adaptent selon que l'utilisateur est admin, RH, ou employé classique.
+
+---
+
+## 🛠️ Stack Technique
+
+| Catégorie | Technologies Utilisées |
 |---|---|
-| **PHP (PDO)** | Backend sécurisé et flexible pour interactions base de données |
-| **MySQL** | Gestion de la base de données relationnelle |
-| **HTML/CSS/JavaScript** | Interface utilisateur responsive |
-| **WAMP/XAMPP** | Environnement de développement local |
+| **Backend** | PHP 8.2 (Vanilla), Requêtes Préparées (Sécurité) |
+| **Base de Données** | MySQL 8.0 (Relationnelle) |
+| **DevOps / CI-CD** | Docker, Docker Compose |
+| **Frontend** | HTML5, CSS3 (Custom Design), JavaScript (SweetAlert2) |
 
 ---
 
 ## 📁 Architecture du Projet
 
-```
+```text
 systeme-pdo/
-├── Formulaires/              # Formulaires dynamiques
-├── bd/                       # Fichiers de base de données
-├── css/                      # Styles de l'application
-├── gestion_users/            # Gestion des utilisateurs
-├── js/                       # Scripts JavaScript
-├── users_dashboard/          # Tableaux de bord utilisateurs
-├── modif_details_commande/   # Modification commandes
-├── modif_stock_carburant/    # Gestion stock carburant
-├── modif_supp_form_avance/   # Gestion formulaires avances
-├── modif_supp_form_personnel/# Gestion formulaires personnel
-├── add_user.php              # Ajout utilisateurs
-├── gestion_commandes.php     # Gestion des commandes
-├── handle_request.php        # Traitement des requêtes
-├── notification.php          # Système de notifications
-├── notification_expression_besoins.php # Notifications besoins
-├── paramètre_admin.php       # Paramètres administrateur
-├── tableau_parametre_appli.php # Configuration application
-├── imprimer_permission.php   # Impression des permissions
-├── logout.php                # Déconnexion utilisateur
-├── unauthorized.php          # Page accès non autorisé
-└── index.php                 # Page d'accueil
+├── Formulaires/              # Interfaces de saisie (RH, Avances, etc.)
+├── bd/                       # Scripts SQL et initialisation de la base (Docker)
+├── css/                      # Feuilles de styles (Custom UI)
+├── gestion_users/            # Logique de gestion des comptes
+├── js/                       # Scripts JavaScript frontend
+├── users_dashboard/          # Tableaux de bord selon le rôle RBAC
+├── Dockerfile                # Image du conteneur PHP-Apache
+├── docker-compose.yml        # Orchestration de l'environnement complet
+├── serv_projet1.php          # Fichier de connexion dynamique à la BD
+└── index.php                 # Page de connexion principale
 ```
 
 ---
 
-## 🚀 Installation
+## 🚀 Guide d'Installation (Docker)
+
+La méthode recommandée pour lancer ce projet est d'utiliser **Docker**. Cela vous évite d'installer un serveur local (Wamp/Xampp) et configure automatiquement la base de données.
 
 ### Prérequis
-- **WAMP** ou **XAMPP** installé et en fonctionnement
-- **MySQL** actif
-- Un navigateur web
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installé et lancé.
 
-### Étapes
-
+### Lancement en 1 commande
 1. **Clonez le dépôt :**
    ```bash
    git clone https://github.com/saleck24/systeme-pdo.git
+   cd systeme-pdo
    ```
+2. **Démarrez les conteneurs :**
+   ```bash
+   docker-compose up -d --build
+   ```
+3. **C'est prêt !**
+   - L'application est accessible sur : `http://localhost:8088`
+   - La base de données s'initialise toute seule avec le fichier `bd/system_pdo.sql`.
+   - **Identifiants de test :** `saleckbaya5@gmail.com` / Mot de passe : `password`
 
-2. **Démarrez votre serveur local :**
-   - Lancez WAMP ou XAMPP
-   - Assurez-vous que Apache et MySQL sont actifs
-
-3. **Importez la base de données :**
-   - Ouvrez **phpMyAdmin** (http://localhost/phpmyadmin)
-   - Créez une nouvelle base de données
-   - Importez le fichier `db.sql` situé dans le dossier `bd/`
-
-4. **Configurez la connexion :**
-   - Ouvrez le fichier `config.php`
-   - Mettez à jour les identifiants MySQL selon votre configuration locale :
-     ```php
-     $host = 'localhost';
-     $db = 'votre_base_de_donnees';
-     $user = 'root';
-     $password = '';
-     ```
-
-5. **Accédez à l'application :**
-   - Ouvrez votre navigateur
-   - Allez à : `http://localhost/systeme-pdo`
+*Note : Si vous préférez utiliser WAMP/XAMPP, l'application reste 100% compatible. Placez le dossier dans `www` ou `htdocs`, importez le SQL via phpMyAdmin, et accédez via `localhost`.*
 
 ---
 
-## 💡 Points Forts du Projet
+## 💡 Pourquoi ce projet ? (Note aux Recruteurs)
 
-✅ **Sécurité maximale** : PDO avec requêtes préparées  
-✅ **Scalabilité** : Architecture modulaire et extensible  
-✅ **User Experience** : Interface intuitive et réactive  
-✅ **Robustesse** : Gestion complète des erreurs  
-✅ **Flexibilité** : Système de rôles et permissions  
-✅ **Maintenabilité** : Code bien organisé et commenté  
-
----
-
-## 🎓 Apprentissages et Compétences Développées
-
-- Architecture de base de données relationnelle
-- Programmation orientée objet en PHP
-- Gestion sécurisée des bases de données
-- Contrôle d'accès et authentification
-- Interface utilisateur dynamique
-- Système de notifications
-- Gestion d'erreurs et debugging
+Ce projet a été développé pour démontrer ma capacité à :
+1. **Reprendre et améliorer une base de code existante** (Refactoring).
+2. **Identifier et corriger des failles de sécurité critiques** (Injection SQL, Upload malveillant).
+3. **Mettre en place des pratiques DevOps modernes** (Dockerisation pour faciliter l'onboarding et le déploiement).
+4. **Créer des interfaces métier fonctionnelles et user-friendly**.
 
 ---
 
-## 📞 Support
-
-Pour toute question ou amélioration, consultez le code source ou ouvrez une issue sur le dépôt.
-
----
-
-**Auteur :** saleck24  
-**Licence :** Voir fichier LICENSE  
+**Auteur :** Saleck BAYA 
+**Licence :** MIT  
 **Dernière mise à jour :** 2026

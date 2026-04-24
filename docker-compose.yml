@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8088:80"
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASS=root
+      - DB_NAME=system_pdo
+    volumes:
+      - .:/var/www/html/ # Permet de voir les modifications de code en direct sans recompiler l'image
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=system_pdo
+    volumes:
+      # Monte le fichier SQL pour l'initialisation automatique au premier lancement
+      - ./bd/system_pdo.sql:/docker-entrypoint-initdb.d/init.sql
+      # Optionnel : persistance des données
+      # - db_data:/var/lib/mysql
+
+# volumes:
+#   db_data:

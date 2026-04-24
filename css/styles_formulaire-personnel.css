@@ -3,7 +3,7 @@ body{
     background-color: #ffffff;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Empêche le défilement horizontal */
+    /* overflow-x: hidden supprimé pour permettre le défilement si besoin */
 }
 header {
     background-color: #371fec;
@@ -54,6 +54,8 @@ nav {
 
 fieldset {
     width: 95%; /* Largeur du fieldset */
+    max-width: 100vw;
+    box-sizing: border-box;
     margin: 0 auto; /* Centre le fieldset horizontalement */
     padding: 20px; /* Espace intérieur du fieldset */
     text-align: center; /* Centre le texte à l'intérieur du fieldset */
@@ -80,6 +82,7 @@ legend {
     /* Fusionne les bordures des cellules */
     border-collapse: collapse;
     margin: 20px 0;
+    white-space: nowrap; /* Force the table cells to not wrap text, ensuring horizontal overflow */
 }
 
 .personnel-table, .personnel-table th, .personnel-table td {
