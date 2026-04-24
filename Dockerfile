@@ -1,5 +1,10 @@
 FROM php:8.2-apache
 
+# Installer les dépendances pour l'extension intl (nécessaire pour NumberFormatter)
+RUN apt-get update && apt-get install -y libicu-dev \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl
+
 # Installer l'extension mysqli indispensable pour se connecter à la base de données
 RUN docker-php-ext-install mysqli
 RUN docker-php-ext-enable mysqli

@@ -5,27 +5,35 @@ require_once("../serv_projet1.php");
 // Sauvegarde d'un nouveau département
 if (isset($_POST['eng'])){
     $departement = $_POST['departement'];
-    $Ajout = mysqli_query($conn,"INSERT INTO departement(departement) VALUES('$departement')");
-    if ($Ajout) {
+    $stmt = $conn->prepare("INSERT INTO departement(departement) VALUES(?)");
+    $stmt->bind_param("s", $departement);
+    
+    if ($stmt->execute()) {
         header("Location: Formulaire_departement.php?status=success&type=add");
+        $stmt->close();
         exit();
     } else {
-        $errorMessage = "Erreur : " . mysqli_error($conn);
+        $errorMessage = "Erreur : " . $stmt->error;
+        $stmt->close();
         header("Location: Formulaire_departement.php?status=error&type=add&message=" . urlencode($errorMessage));
         exit();
     }
 }
 
 // Modification d'un département
-if (isset($_POST['edit_departement'])) {
+if (isset($_POST['update_departement'])) {
     $id = intval($_POST['edit_id']);
     $new_departement = $_POST['edit_departement'];
-    $update = mysqli_query($conn, "UPDATE departement SET departement='$new_departement' WHERE num_departement=$id");
-    if ($update) {
+    $stmt = $conn->prepare("UPDATE departement SET departement=? WHERE num_departement=?");
+    $stmt->bind_param("si", $new_departement, $id);
+    
+    if ($stmt->execute()) {
         header("Location: Formulaire_departement.php?status=success&type=update");
+        $stmt->close();
         exit();
     } else {
-        $errorMessage ="Erreur : " . mysqli_error($conn);
+        $errorMessage ="Erreur : " . $stmt->error;
+        $stmt->close();
         header("Location: Formulaire_departement.php?status=error&type=update&message=" . urlencode($errorMessage));
         exit();
     }

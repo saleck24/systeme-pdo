@@ -36,35 +36,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!isset($_SESSION['commande_id']) || $_SESSION['commande_id'] === 0) {
             
             // Récupérer la date du formulaire
-            $date_commande = mysqli_real_escape_string($conn, $_POST['date']);
+            $date_commande = $_POST['date'];
             
-            // Insérer une nouvelle commande avec la date
-            $sql_create_commande = "INSERT INTO commandes (status, date_commande) VALUES ('ouvert', '$date_commande')";
-            if (mysqli_query($conn, $sql_create_commande)) {
-                $_SESSION['commande_id'] = mysqli_insert_id($conn);
+            // Insérer une nouvelle commande avec la date avec requête préparée
+            $sql_create_commande = "INSERT INTO commandes (status, date_commande) VALUES ('ouvert', ?)";
+            $stmt_cmd = $conn->prepare($sql_create_commande);
+            if ($stmt_cmd) {
+                $stmt_cmd->bind_param("s", $date_commande);
+                if ($stmt_cmd->execute()) {
+                    $_SESSION['commande_id'] = $conn->insert_id;
+                } else {
+                    $error_message = "Erreur: " . $stmt_cmd->error;
+                }
+                $stmt_cmd->close();
             } else {
-                echo "Erreur: " . $sql_create_commande . "<br>" . mysqli_error($conn);
+                $error_message = "Erreur de préparation: " . $conn->error;
             }
         }
 
         // Enregistrer l'objet unique pour les désignations suivantes
         if (!isset($_SESSION['objet_unique'])) {
-            $_SESSION['objet_unique'] = mysqli_real_escape_string($conn, $_POST['objet']);//éviter les injections sql.
-
+            $_SESSION['objet_unique'] = $_POST['objet'];
         }
         // Enregistrer une unique destination pour la commande.
         if (!isset($_SESSION['destination_unique'])) {
-            $_SESSION['destination_unique'] = mysqli_real_escape_string($conn, $_POST['destination']);
+            $_SESSION['destination_unique'] = $_POST['destination'];
         }
 
         // Récupérer les données du formulaire
         $date_saisie = date("Y-m-d H:i:s");
-        $désignation = mysqli_real_escape_string($conn, $_POST['désignation']);
-        $objet = $_SESSION['objet_unique'];;
+        $désignation = $_POST['désignation'];
+        $objet = $_SESSION['objet_unique'];
         $nombres_articles = intval($_POST['nombres_articles']);
-        $urgence =  mysqli_real_escape_string($conn, $_POST['urgence']);
-        $type_services = mysqli_real_escape_string($conn, $_POST['type_services']);
-        $destination = $_SESSION['destination_unique'];;
+        $urgence = $_POST['urgence'];
+        $type_services = $_POST['type_services'];
+        $destination = $_SESSION['destination_unique'];
         $commande_id = $_SESSION['commande_id'];
 
         // Gestion des fichiers - Pièce
@@ -85,14 +91,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $image = null;
         }
         
-        // Insertion dans la base de données
-        $sql = "INSERT INTO expression_besoins (date_saisie, désignation, objet, piece, image, nombres_articles, urgence, type_services, commande_id,destination) 
-                VALUES ('$date_saisie', '$désignation', '$objet', '$piece', '$image', '$nombres_articles', '$urgence', '$type_services', '$commande_id', '$destination')";
-
-        if (mysqli_query($conn, $sql)) {
-            $success_message = 'L\'élément a été ajouté avec succès à la commande.';
+        // Insertion dans la base de données avec requête préparée
+        $sql = "INSERT INTO expression_besoins (user_id, date_saisie, désignation, objet, piece, image, nombres_articles, urgence, type_services, commande_id, destination) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        $stmt = $conn->prepare($sql);
+        if ($stmt) {
+            $user_id = $_SESSION['user_id'];
+            $stmt->bind_param("isssssisssi", $user_id, $date_saisie, $désignation, $objet, $piece, $image, $nombres_articles, $urgence, $type_services, $commande_id, $destination);
+            
+            if ($stmt->execute()) {
+                $success_message = 'L\'élément a été ajouté avec succès à la commande.';
+            } else {
+                $error_message = "Erreur: " . $stmt->error;
+            }
+            $stmt->close();
         } else {
-            $error_message = "Erreur: " . $sql . "<br>" . mysqli_error($conn);
+            $error_message = "Erreur de préparation: " . $conn->error;
         }
             
         

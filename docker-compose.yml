@@ -13,7 +13,8 @@ services:
     volumes:
       - .:/var/www/html/ # Permet de voir les modifications de code en direct sans recompiler l'image
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     image: mysql:8.0
@@ -26,6 +27,11 @@ services:
       - ./bd/system_pdo.sql:/docker-entrypoint-initdb.d/init.sql
       # Optionnel : persistance des données
       # - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 # volumes:
 #   db_data:

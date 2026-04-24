@@ -10,14 +10,17 @@ if (isset($_POST['eng'])){
     // Convertir la première lettre du titre en majuscule pour la clé
     $cle = strtoupper(substr($titre, 0, 1));
     
-    // Insérer les données dans la table 'categorie'
-    $Ajout = mysqli_query($conn, "INSERT INTO categorie(Titre, Cle, salaire) VALUES('$titre', '$cle', '$salaire')");
+    // Insérer les données dans la table 'categorie' avec requête préparée
+    $stmt = $conn->prepare("INSERT INTO categorie(Titre, Cle, salaire) VALUES(?, ?, ?)");
+    $stmt->bind_param("ssd", $titre, $cle, $salaire);
 
-    if ($Ajout) {
+    if ($stmt->execute()) {
+        $stmt->close();
         header("Location: Formulaire_categorie.php?status=success&type=add");
         exit();
     } else {
-        $errorMessage = "Erreur : " . mysqli_error($conn);
+        $errorMessage = "Erreur : " . $stmt->error;
+        $stmt->close();
         header("Location: Formulaire_categorie.php?status=error&type=add&message=" . urlencode($errorMessage));
         exit();
     }
@@ -26,13 +29,18 @@ if (isset($_POST['eng'])){
 // Modification du Salaire d'une Categorie
 if (isset($_POST['update_categorie'])) {
     $id = intval($_POST['edit_id']);
-    $new_salaire = $_POST['edit_categorie']; // Correction ici
-    $update = mysqli_query($conn, "UPDATE categorie SET salaire='$new_salaire' WHERE code=$id");
-    if ($update) {
+    $new_salaire = $_POST['edit_categorie'];
+    
+    $stmt = $conn->prepare("UPDATE categorie SET salaire=? WHERE code=?");
+    $stmt->bind_param("di", $new_salaire, $id);
+    
+    if ($stmt->execute()) {
+        $stmt->close();
         header("Location: Formulaire_categorie.php?status=success&type=update");
         exit();
     } else {
-        $errorMessage ="Erreur : " . mysqli_error($conn);
+        $errorMessage ="Erreur : " . $stmt->error;
+        $stmt->close();
         header("Location: Formulaire_categorie.php?status=error&type=update&message=" . urlencode($errorMessage));
         exit();
     }
